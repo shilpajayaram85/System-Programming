@@ -26,7 +26,7 @@ int main()
            
         }
         // since parent had exited this child becomes a zombie and prints below will also not appear as parent has exited
-        sleep(2);
+        sleep(20);
         printf("\n second child pid:%d, parent pid = %d  and to exit ", getpid(), getppid()); 
         exit(0);
     }

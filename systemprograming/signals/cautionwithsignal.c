@@ -42,7 +42,7 @@ int main() {
 		printf("Locking the Mutex\n");
 		pthread_mutex_lock(&gmutex);
 		//sleep has been used to demonstrate the deadlock with ease
-		sleep(5);
+		sleep(100);
 		if (printflag)
 			printf("printing in while loop if printflag is true\n");
 		pthread_mutex_unlock(&gmutex);

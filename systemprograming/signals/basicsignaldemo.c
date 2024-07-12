@@ -1,10 +1,3 @@
-/*
-This program shows how a signal handler is installed and when it is invoked.
-It is invoked when another program sends a signal to this program. 
-After the signal has been sent by another program, OS runs the signal handler for the target program when the target program gets the CPU(i.e., is scheduled on the CPU and returning from the kernel mode)
-It also shows that signal handlers can't be installed for all types of signals especially SIGKILL.
-SIGKILL is a signal which can't be caught and handled, otherwise program may misuse it so that it can't be killed.
-*/
 
 #include<stdio.h>
 #include<signal.h>
@@ -24,9 +17,9 @@ void annother_signal_handler(int signum)
 int main()
 {       int x;
 	int sigret = 0;
-	signal(SIGINT,signal_handler);
-	signal(SIGQUIT,annother_signal_handler);// to handle sigquit ctrl-\
-	signal(SIGKILL,signal_handler);
+	signal(SIGINT,signal_handler); // to handle sigint ctrl+c
+	signal(SIGQUIT,annother_signal_handler);// to handle sigquit ctrl-backslash
+	signal(SIGKILL,signal_handler); // kill -9 pid
 	while(1) 
 	{	
 		sleep(2);

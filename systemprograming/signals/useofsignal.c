@@ -37,12 +37,6 @@ int main()
 	}
 	signal(SIGUSR2,reset_flag);
 
-	signal(2,set_flag);
-
-    	if (errno != 0) 
-	{
-		printf("SIGUSR2 set error %d \n", errno);
-	}
 	while(1) 
 	{
 		printf("Please enter your name\n");
