@@ -38,7 +38,7 @@ int main() {
 
         // Read from pipe1 (Process A to Process B)
         read(pipefd1[0], buffer1, BUFFER_SIZE);
-        printf("Process B received: %s", buffer1);
+        printf("Process B received: %s\n", buffer1);
 
         // Write to pipe2 (Process B to Process A)
         write(pipefd2[1], "Hello from B!", 13);
@@ -57,7 +57,7 @@ int main() {
 
         // Read from pipe2 (Process B to Process A)
         read(pipefd2[0], buffer2, BUFFER_SIZE);
-        printf("Process A received: %s", buffer2);
+        printf("Process A received: %s\n", buffer2);
 
         close(pipefd1[1]);  // Close write end of pipe1
         close(pipefd2[0]);  // Close read end of pipe2
