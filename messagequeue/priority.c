@@ -5,6 +5,8 @@
 #include <sys/stat.h>
 #include <mqueue.h>
 #include <unistd.h>
+#include<sys/types.h>
+#include<sys/wait.h>
 
 #define QUEUE_NAME "/myqueue"
 #define MAX_SIZE 1024
@@ -64,7 +66,7 @@ int main() {
         send_message(mq, "High priority message", 3);
         
         // Sending exit message to stop the receiver
-        send_message(mq, "exit", 0);
+        send_message(mq, "exit", 4);
 
         // Wait for child process to finish
         wait(NULL);

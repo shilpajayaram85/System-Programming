@@ -6,6 +6,7 @@
 #include <mqueue.h>
 
 int main() {
+
     mqd_t mq;
     struct mq_attr attr;
     char buffer[1024];

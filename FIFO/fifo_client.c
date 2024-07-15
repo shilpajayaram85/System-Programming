@@ -9,7 +9,16 @@
 int main() {
     int fd;
     char buffer[512];
-    
+	
+	/*mkfifo
+	open
+	write
+	close
+	 
+	 open
+	 read
+	 close */
+
     fd = open(FIFO_FILE, O_RDONLY);
     if (fd == -1) {
         perror("open");

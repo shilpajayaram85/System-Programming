@@ -10,8 +10,11 @@
 int main() {
     int fd;
     char buffer[512];
-    mkfifo(FIFO_FILE, 0666);
 
+	mkfifo(FIFO_FILE, 0666);
+	pid = fork()
+	if (pid> 0)
+{
     fd = open(FIFO_FILE, O_WRONLY);
     if (fd == -1) {
         perror("open");
