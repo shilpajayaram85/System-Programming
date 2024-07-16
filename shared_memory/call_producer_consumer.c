@@ -37,8 +37,25 @@ int main() {
         perror("fork");
         exit(EXIT_FAILURE);
     }
+    if ((pid = fork()) == 0) {
+          execlp("./producer", "./producer", NULL);
+          perror("execlp");
+          exit(EXIT_FAILURE);
+      } else if (pid == -1) {
+          perror("fork");
+          exit(EXIT_FAILURE);
+      }
+ 
+     if ((pid = fork()) == 0) {
+          execlp("./consumer", "./consumer", NULL);
+          perror("execlp");
+          exit(EXIT_FAILURE);
+      } else if (pid == -1) {
+          perror("fork");
+          exit(EXIT_FAILURE);
+      }
 
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 4; i++) {
         wait(NULL);
     }
 
